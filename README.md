@@ -1,11 +1,20 @@
-# Very short description of the package
+# Laravel form partials
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/davide-casiraghi/laravel-form-partials.svg?style=flat-square)](https://packagist.org/packages/davide-casiraghi/laravel-form-partials)
-[![Build Status](https://img.shields.io/travis/davide-casiraghi/laravel-form-partials/master.svg?style=flat-square)](https://travis-ci.org/davide-casiraghi/laravel-form-partials)
-[![Quality Score](https://img.shields.io/scrutinizer/g/davide-casiraghi/laravel-form-partials.svg?style=flat-square)](https://scrutinizer-ci.com/g/davide-casiraghi/laravel-form-partials)
-[![Total Downloads](https://img.shields.io/packagist/dt/davide-casiraghi/laravel-form-partials.svg?style=flat-square)](https://packagist.org/packages/davide-casiraghi/laravel-form-partials)
+[![GitHub last commit](https://img.shields.io/github/last-commit/davide-casiraghi/laravel-form-partials.svg)](https://github.com/davide-casiraghi/laravel-form-partials) 
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+A collection of partials Blade views for Bootstrap 4 forms controls.
+
+**Available controls**
+- Input
+- Input Hidden
+- Input Readonly
+- Select
+- Checkbox
+- Datepicker
+- Timepicker
+- Textarea (with WYSWYG editor)
+- Textarea plain
 
 ## Installation
 
@@ -15,16 +24,21 @@ You can install the package via composer:
 composer require davide-casiraghi/laravel-form-partials
 ```
 
+### Publish all the vendor files
+```php artisan vendor:publish --force```   
+
+Then select the number that correspont to the package.
+
 ## Usage
 
+The partials can be included in any blade view in this way:
 ``` php
-// Usage description here
-```
-
-### Testing
-
-``` bash
-composer test
+@include('laravel-form-partials::input', [
+    'title' => __('views.title'),
+    'name' => 'title',
+    'placeholder' => 'Post title',
+    'value' => old('title')
+])
 ```
 
 ### Changelog
