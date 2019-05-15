@@ -15,7 +15,7 @@ class LaravelFormPartialsServiceProvider extends ServiceProvider
          * Optional methods to load your package assets
          */
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'laravel-form-partials');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-form-partials');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-form-partials');
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
@@ -25,9 +25,9 @@ class LaravelFormPartialsServiceProvider extends ServiceProvider
             ], 'config');
 
             // Publishing the views.
-            /*$this->publishes([
+            $this->publishes([
                 __DIR__.'/../resources/views' => resource_path('views/vendor/laravel-form-partials'),
-            ], 'views');*/
+            ], 'views');
 
             // Publishing assets.
             /*$this->publishes([
