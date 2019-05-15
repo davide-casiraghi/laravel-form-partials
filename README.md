@@ -5,6 +5,17 @@
 
 A collection of partials Blade views for Bootstrap 4 forms controls.
 
+**Available controls**
+- Input
+- Input Hidden
+- Input Readonly
+- Select
+- Checkbox
+- Datepicker
+- Timepicker
+- Textarea (with WYSWYG editor)
+- Textarea plain
+
 ## Installation
 
 You can install the package via composer:
