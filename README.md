@@ -1,9 +1,7 @@
 # Laravel form partials
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/davide-casiraghi/laravel-form-partials.svg?style=flat-square)](https://packagist.org/packages/davide-casiraghi/laravel-form-partials)
-[![Build Status](https://img.shields.io/travis/davide-casiraghi/laravel-form-partials/master.svg?style=flat-square)](https://travis-ci.org/davide-casiraghi/laravel-form-partials)
-[![Quality Score](https://img.shields.io/scrutinizer/g/davide-casiraghi/laravel-form-partials.svg?style=flat-square)](https://scrutinizer-ci.com/g/davide-casiraghi/laravel-form-partials)
-[![Total Downloads](https://img.shields.io/packagist/dt/davide-casiraghi/laravel-form-partials.svg?style=flat-square)](https://packagist.org/packages/davide-casiraghi/laravel-form-partials)
+[![GitHub last commit](https://img.shields.io/github/last-commit/davide-casiraghi/laravel-form-partials.svg)](https://github.com/davide-casiraghi/laravel-form-partials) 
 
 A collection of partials Blade views for Bootstrap 4 forms controls.
 
