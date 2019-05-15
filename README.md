@@ -1,4 +1,4 @@
-# Very short description of the package
+# Laravel form partials
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/davide-casiraghi/laravel-form-partials.svg?style=flat-square)](https://packagist.org/packages/davide-casiraghi/laravel-form-partials)
 [![Build Status](https://img.shields.io/travis/davide-casiraghi/laravel-form-partials/master.svg?style=flat-square)](https://travis-ci.org/davide-casiraghi/laravel-form-partials)
