@@ -16,7 +16,7 @@ composer require davide-casiraghi/laravel-form-partials
 ```
 
 ### Publish all the vendor files
-```php artisan vendor:publish --force```
+```php artisan vendor:publish --force```   
 Then select the number that correspont to the package.
 
 ## Usage
