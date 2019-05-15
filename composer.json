@@ -1,0 +1,54 @@
+{
+    "name": "davide-casiraghi/laravel-form-partials",
+    "description": "A collection of partials blade views for Bootstrap 4 forms controls.",
+    "keywords": [
+        "davide-casiraghi",
+        "laravel-form-partials"
+    ],
+    "homepage": "https://github.com/davide-casiraghi/laravel-form-partials",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Davide Casiraghi",
+            "email": "davide.casiraghi@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "5.8.*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "3.8.*",
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "DavideCasiraghi\\LaravelFormPartials\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DavideCasiraghi\\LaravelFormPartials\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DavideCasiraghi\\LaravelFormPartials\\LaravelFormPartialsServiceProvider"
+            ],
+            "aliases": {
+                "LaravelFormPartials": "DavideCasiraghi\\LaravelFormPartials\\LaravelFormPartialsFacade"
+            }
+        }
+    }
+}
