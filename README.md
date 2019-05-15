@@ -17,8 +17,14 @@ composer require davide-casiraghi/laravel-form-partials
 
 ## Usage
 
+The partials can be included in any blade view in this way:
 ``` php
-// Usage description here
+@include('laravel-form-partials::input', [
+    'title' => __('views.title'),
+    'name' => 'title',
+    'placeholder' => 'Post title',
+    'value' => old('title')
+])
 ```
 
 ### Testing
