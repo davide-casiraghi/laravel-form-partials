@@ -42,6 +42,7 @@ The partials can be included in any blade view in this way:
     'name' => 'title',
     'placeholder' => 'Post title',
     'value' => old('title'),
+    'required' => true,
 ])
 ```
 
@@ -52,6 +53,7 @@ The partials can be included in any blade view in this way:
     'name' => 'title',
     'placeholder' => 'Post title',
     'value' => $post->title,
+    'required' => true,
 ])
 ```
 ### Changelog
