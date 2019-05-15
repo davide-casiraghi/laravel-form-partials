@@ -15,6 +15,8 @@ A collection of partials Blade views for Bootstrap 4 forms controls.
 - Timepicker
 - Textarea (with WYSWYG editor)
 - Textarea plain
+- Password
+- Alert (to show an bootstrap alert)
 
 ## Installation
 
@@ -32,15 +34,26 @@ Then select the number that correspont to the package.
 ## Usage
 
 The partials can be included in any blade view in this way:
+
+** for a create view **
 ``` php
 @include('laravel-form-partials::input', [
     'title' => __('views.title'),
     'name' => 'title',
     'placeholder' => 'Post title',
-    'value' => old('title')
+    'value' => old('title'),
 ])
 ```
 
+** for an edit view **
+``` php
+@include('laravel-form-partials::input', [
+    'title' => __('views.title'),
+    'name' => 'title',
+    'placeholder' => 'Post title',
+    'value' => $post->title,
+])
+```
 ### Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
