@@ -20,30 +20,38 @@ class LaravelFormPartials
      */
     public static function uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth)
     {
+        if ($imageFile){
+            // Create dir if not exist (in /storage/app/public/images/..)
+            if (! \Storage::disk('public')->has('images/'.$imageSubdir.'/')) {
+                \Storage::disk('public')->makeDirectory('images/'.$imageSubdir.'/');
+            }
 
-        // Create dir if not exist (in /storage/app/public/images/..)
-        if (! \Storage::disk('public')->has('images/'.$imageSubdir.'/')) {
-            \Storage::disk('public')->makeDirectory('images/'.$imageSubdir.'/');
+            $destinationPath = 'app/public/images/'.$imageSubdir.'/';
+
+            // Resize the image with Intervention - http://image.intervention.io/api/resize
+            // -  resize and store the image to a width of 300 and constrain aspect ratio (auto height)
+            // - save file as jpg with medium quality
+            $image = Image::make($imageFile->getRealPath())
+                                    ->resize((int) $imageWidth, null,
+                                        function ($constraint) {
+                                            $constraint->aspectRatio();
+                                        })
+                                    ->save(storage_path($destinationPath.$imageName), 75);
+
+            // Create the thumb
+            $image->resize((int) $thumbWidth, null,
+                        function ($constraint) {
+                            $constraint->aspectRatio();
+                        })
+                    ->save(storage_path($destinationPath.'thumb_'.$imageName), 75);
+        
+            $ret = $imageFile->hashName();
         }
-
-        $destinationPath = 'app/public/images/'.$imageSubdir.'/';
-
-        // Resize the image with Intervention - http://image.intervention.io/api/resize
-        // -  resize and store the image to a width of 300 and constrain aspect ratio (auto height)
-        // - save file as jpg with medium quality
-        $image = Image::make($imageFile->getRealPath())
-                                ->resize((int) $imageWidth, null,
-                                    function ($constraint) {
-                                        $constraint->aspectRatio();
-                                    })
-                                ->save(storage_path($destinationPath.$imageName), 75);
-
-        // Create the thumb
-        $image->resize((int) $thumbWidth, null,
-                    function ($constraint) {
-                        $constraint->aspectRatio();
-                    })
-                ->save(storage_path($destinationPath.'thumb_'.$imageName), 75);
+        else{
+            $ret = $imageName;
+        }
+        
+        return $ret;
     }
     
     /*****************************************************************/
@@ -58,7 +66,7 @@ class LaravelFormPartials
      * @param  string $thumbWidth
      * @return string $ret
      */
-    public static function saveImageFile($requestFile, $fileName, $imageSubdir, $imageWidth, $thumbWidth)
+    /*public static function saveImageFile($requestFile, $fileName, $imageSubdir, $imageWidth, $thumbWidth)
     {
         if ($imageFile) {
             $imageFile = $request->file('image_file_name');
@@ -71,5 +79,5 @@ class LaravelFormPartials
         }
         
         return $ret;
-    }
+    }*/
 }

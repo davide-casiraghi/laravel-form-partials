@@ -34,7 +34,7 @@ class LaravelFormPartialsTest extends TestCase
         $imageWidth = '1067';
         $thumbWidth = '690';
 
-        LaravelFormPartials::uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth);
+        $imageFileName = LaravelFormPartials::uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth);
 
         // Leave this lines here - they can be very useful for new tests
         //$directory = "/";
@@ -44,10 +44,12 @@ class LaravelFormPartialsTest extends TestCase
         $filePath = 'public/images/'.$imageSubdir.'/'.$imageName;
 
         Storage::assertExists($filePath);
+        
+        $this->assertSame($imageName,$imageFileName);
     }
     
     /** @test */
-    public function it_save_an_image()
+    /*public function it_save_an_image()
     {
         $imageSubdir = 'test_subdir';
         
@@ -76,6 +78,6 @@ class LaravelFormPartialsTest extends TestCase
         
         $this->assertEqual($imageName, 'test_file_name.jpg');
     
-    }
+    }*/
     
 }
