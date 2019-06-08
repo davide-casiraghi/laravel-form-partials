@@ -44,7 +44,6 @@ class LaravelFormPartialsTest extends TestCase
         $filePath = 'public/images/'.$imageSubdir.'/'.$imageName;
 
         Storage::assertExists($filePath);
-        
         $this->assertSame($imageName,$imageFileName);
     }
     
