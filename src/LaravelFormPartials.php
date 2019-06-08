@@ -58,7 +58,7 @@ class LaravelFormPartials
      * @param  string $thumbWidth
      * @return string $ret
      */
-    public static function saveImageFile($request, $imageSubdir, $imageWidth, $thumbWidth)
+    public static function saveImageFile($requestFile, $fileName, $imageSubdir, $imageWidth, $thumbWidth)
     {
         if ($imageFile) {
             $imageFile = $request->file('image_file_name');
