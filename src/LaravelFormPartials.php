@@ -2,6 +2,8 @@
 
 namespace DavideCasiraghi\LaravelFormPartials;
 
+use Intervention\Image\ImageManagerStatic as Image;
+
 class LaravelFormPartials
 {
     /**

@@ -1,13 +1,13 @@
 <?php
 
-namespace DavideCasiraghi\LaravelFormPartials;
+namespace DavideCasiraghi\LaravelFormPartials\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
  * @see \DavideCasiraghi\LaravelFormPartials\Skeleton\SkeletonClass
  */
-class LaravelFormPartialsFacade extends Facade
+class LaravelFormPartials extends Facade
 {
     /**
      * Get the registered name of the component.
