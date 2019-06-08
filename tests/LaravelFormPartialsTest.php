@@ -2,8 +2,8 @@
 
 namespace DavideCasiraghi\LaravelFormPartials\Tests;
 
-use Illuminate\Support\Facades\Storage;
 use DavideCasiraghi\LaravelFormPartials\Facades\LaravelFormPartials;
+use Illuminate\Support\Facades\Storage;
 
 class LaravelFormPartialsTest extends TestCase
 {
@@ -11,7 +11,7 @@ class LaravelFormPartialsTest extends TestCase
     public function it_uploads_an_image()
     {
         $imageSubdir = 'test_subdir';
-
+        
         // Delete directory
         //dd(Storage::directories('public/images')); // List directories
         $directory = 'public/images/'.$imageSubdir.'/';
@@ -20,13 +20,13 @@ class LaravelFormPartialsTest extends TestCase
         // Symulate the upload
         $local_test_file = __DIR__.'/test-files/large-avatar.png';
         $uploadedFile = new \Illuminate\Http\UploadedFile(
-                    $local_test_file,
-                    'large-avatar.png',
-                    'image/png',
-                    null,
-                    null,
-                    true
-                );
+                $local_test_file,
+                'large-avatar.png',
+                'image/png',
+                null,
+                null,
+                true
+            );
 
         // Call the function uploadImageOnServer()
         $imageFile = $uploadedFile;
@@ -45,4 +45,23 @@ class LaravelFormPartialsTest extends TestCase
 
         Storage::assertExists($filePath);
     }
+    
+    /** @test */
+    public function it_save_an_image()
+    {
+        $request = new \Illuminate\Http\Request();
+        $request->replace([
+              'title' => 'test title updated',
+              'body' => 'test body updated',
+          ]);
+        
+        $imageSubdir = 'test_subdir';
+        $imageWidth = '1067';
+        $thumbWidth = '690';
+        
+        $imageName = LaravelFormPartials::saveImageFile($request, $imageSubdir, $imageWidth, $thumbWidth);
+    
+    
+    }
+    
 }
