@@ -63,9 +63,6 @@ class LaravelFormPartials
         if ($imageFile) {
             $imageFile = $request->file('image_file_name');
             $imageName = $imageFile->hashName();
-            $imageSubdir = 'cards';
-            $imageWidth = '1067';
-            $thumbWidth = '690';
 
             $this->uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth);
             $ret = $imageName;
