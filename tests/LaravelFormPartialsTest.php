@@ -51,8 +51,15 @@ class LaravelFormPartialsTest extends TestCase
     {
         $request = new \Illuminate\Http\Request();
         $request->replace([
-              'title' => 'test title updated',
-              'body' => 'test body updated',
+              'image_file_name' => 'test_file_name.jpg',
+              file('image_file_name') => new \Illuminate\Http\UploadedFile(
+                      $local_test_file,
+                      'large-avatar.png',
+                      'image/png',
+                      null,
+                      null,
+                      true
+                  ),
           ]);
         
         $imageSubdir = 'test_subdir';
@@ -60,7 +67,8 @@ class LaravelFormPartialsTest extends TestCase
         $thumbWidth = '690';
         
         $imageName = LaravelFormPartials::saveImageFile($request, $imageSubdir, $imageWidth, $thumbWidth);
-    
+        
+        $this->assertEqual($imageName, 'test_file_name.jpg');
     
     }
     
