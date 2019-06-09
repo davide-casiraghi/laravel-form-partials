@@ -73,6 +73,17 @@ The partials can be included in any blade view in this way:
 ])
 ```
 
+** for an edit view **
+``` php
+@include('laravel-form-partials::upload-image', [
+   'title' => 'Card image', 
+   'name' => 'image_file_name',
+   'folder' => 'cards',
+   'value' => $card->image_file_name,
+   'required' => false,
+])
+```
+
 **In the controller store method**
 ``` php
 use DavideCasiraghi\LaravelFormPartials\Facades\LaravelFormPartials;
