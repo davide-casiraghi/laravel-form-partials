@@ -48,6 +48,20 @@ class LaravelFormPartialsTest extends TestCase
     }
     
     /** @test */
+    public function it_keep_the_image_name_when_no_new_image()
+    {
+        $imageSubdir = 'test_subdir';
+        $imageFile = null;
+        $imageName = "test_file_name.jpg";
+        $imageWidth = '1067';
+        $thumbWidth = '690';
+
+        $imageFileName = LaravelFormPartials::uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth);
+        
+        $this->assertSame($imageName,$imageFileName);
+    }
+    
+    /** @test */
     /*public function it_save_an_image()
     {
         $imageSubdir = 'test_subdir';
