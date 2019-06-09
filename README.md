@@ -20,6 +20,7 @@ A collection of partials Blade views for Bootstrap 4 forms controls.
 - Textarea (with WYSWYG editor)
 - Textarea plain
 - Password
+- Upload image
 - Alert (to show an bootstrap alert)
 
 ## Installation
