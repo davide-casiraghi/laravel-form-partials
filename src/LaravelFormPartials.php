@@ -20,7 +20,7 @@ class LaravelFormPartials
      */
     public static function uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth)
     {
-        if ($imageFile){
+        if ($imageFile) {
             // Create dir if not exist (in /storage/app/public/images/..)
             if (! \Storage::disk('public')->has('images/'.$imageSubdir.'/')) {
                 \Storage::disk('public')->makeDirectory('images/'.$imageSubdir.'/');
@@ -44,19 +44,18 @@ class LaravelFormPartials
                             $constraint->aspectRatio();
                         })
                     ->save(storage_path($destinationPath.'thumb_'.$imageName), 75);
-        
+
             $ret = $imageFile->hashName();
-        }
-        else{
+        } else {
             $ret = $imageName;
         }
-        
+
         return $ret;
     }
-    
+
     /*****************************************************************/
-    
-    /**
+
+    /*
      * Save image file.
      * $imageSubdir is the subdir in /storage/app/public/images/..
      *
@@ -77,7 +76,7 @@ class LaravelFormPartials
         } else {
             $ret = $request->image_file_name;
         }
-        
+
         return $ret;
     }*/
 }
