@@ -2,8 +2,8 @@
 
 namespace DavideCasiraghi\LaravelFormPartials\Tests;
 
-use DavideCasiraghi\LaravelFormPartials\Facades\LaravelFormPartials;
 use Illuminate\Support\Facades\Storage;
+use DavideCasiraghi\LaravelFormPartials\Facades\LaravelFormPartials;
 
 class LaravelFormPartialsTest extends TestCase
 {
@@ -11,7 +11,7 @@ class LaravelFormPartialsTest extends TestCase
     public function it_uploads_an_image()
     {
         $imageSubdir = 'test_subdir';
-        
+
         // Delete directory
         //dd(Storage::directories('public/images')); // List directories
         $directory = 'public/images/'.$imageSubdir.'/';
@@ -44,21 +44,20 @@ class LaravelFormPartialsTest extends TestCase
         $filePath = 'public/images/'.$imageSubdir.'/'.$imageName;
 
         Storage::assertExists($filePath);
-        $this->assertSame($imageName,$imageFileName);
+        $this->assertSame($imageName, $imageFileName);
     }
-    
+
     /** @test */
     public function it_keep_the_image_name_when_no_new_image()
     {
         $imageSubdir = 'test_subdir';
         $imageFile = null;
-        $imageName = "test_file_name.jpg";
+        $imageName = 'test_file_name.jpg';
         $imageWidth = '1067';
         $thumbWidth = '690';
 
         $imageFileName = LaravelFormPartials::uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth);
-        
-        $this->assertSame($imageName,$imageFileName);
+
+        $this->assertSame($imageName, $imageFileName);
     }
-    
 }

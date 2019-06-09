@@ -29,8 +29,8 @@ class LaravelFormPartials
             $destinationPath = 'app/public/images/'.$imageSubdir.'/';
             $imageName = $imageFile->hashName();
             // Resize the image with Intervention - http://image.intervention.io/api/resize
-                // - resize and store the image to a specific width and constrain aspect ratio (auto height)
-                // - save file as jpg with medium quality
+            // - resize and store the image to a specific width and constrain aspect ratio (auto height)
+            // - save file as jpg with medium quality
             $image = Image::make($imageFile->getRealPath())
                                     ->resize((int) $imageWidth, null,
                                         function ($constraint) {
@@ -44,11 +44,10 @@ class LaravelFormPartials
                             $constraint->aspectRatio();
                         })
                     ->save(storage_path($destinationPath.'thumb_'.$imageName), 75);
-        } 
-        
+        }
+
         $ret = $imageName;
 
         return $ret;
     }
-
 }
