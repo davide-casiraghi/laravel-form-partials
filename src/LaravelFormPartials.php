@@ -20,17 +20,17 @@ class LaravelFormPartials
      */
     public static function uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth)
     {
-        if ($imageFile){
+        if ($imageFile) {
             // Create dir if not exist (in /storage/app/public/images/..)
             if (! \Storage::disk('public')->has('images/'.$imageSubdir.'/')) {
                 \Storage::disk('public')->makeDirectory('images/'.$imageSubdir.'/');
             }
 
             $destinationPath = 'app/public/images/'.$imageSubdir.'/';
-
+            $imageName = $imageFile->hashName();
             // Resize the image with Intervention - http://image.intervention.io/api/resize
-            // -  resize and store the image to a width of 300 and constrain aspect ratio (auto height)
-            // - save file as jpg with medium quality
+                // - resize and store the image to a specific width and constrain aspect ratio (auto height)
+                // - save file as jpg with medium quality
             $image = Image::make($imageFile->getRealPath())
                                     ->resize((int) $imageWidth, null,
                                         function ($constraint) {
@@ -44,19 +44,16 @@ class LaravelFormPartials
                             $constraint->aspectRatio();
                         })
                     ->save(storage_path($destinationPath.'thumb_'.$imageName), 75);
+        } 
         
-            $ret = $imageFile->hashName();
-        }
-        else{
-            $ret = $imageName;
-        }
-        
+        $ret = $imageName;
+
         return $ret;
     }
-    
+
     /*****************************************************************/
-    
-    /**
+
+    /*
      * Save image file.
      * $imageSubdir is the subdir in /storage/app/public/images/..
      *
@@ -77,7 +74,7 @@ class LaravelFormPartials
         } else {
             $ret = $request->image_file_name;
         }
-        
+
         return $ret;
     }*/
 }
