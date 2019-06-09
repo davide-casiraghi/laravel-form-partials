@@ -51,30 +51,4 @@ class LaravelFormPartials
         return $ret;
     }
 
-    /*****************************************************************/
-
-    /*
-     * Save image file.
-     * $imageSubdir is the subdir in /storage/app/public/images/..
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  string $imageSubdir
-     * @param  string $imageWidth
-     * @param  string $thumbWidth
-     * @return string $ret
-     */
-    /*public static function saveImageFile($requestFile, $fileName, $imageSubdir, $imageWidth, $thumbWidth)
-    {
-        if ($imageFile) {
-            $imageFile = $request->file('image_file_name');
-            $imageName = $imageFile->hashName();
-
-            $this->uploadImageOnServer($imageFile, $imageName, $imageSubdir, $imageWidth, $thumbWidth);
-            $ret = $imageName;
-        } else {
-            $ret = $request->image_file_name;
-        }
-
-        return $ret;
-    }*/
 }

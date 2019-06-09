@@ -61,36 +61,4 @@ class LaravelFormPartialsTest extends TestCase
         $this->assertSame($imageName,$imageFileName);
     }
     
-    /** @test */
-    /*public function it_save_an_image()
-    {
-        $imageSubdir = 'test_subdir';
-        
-        // Delete directory
-        //dd(Storage::directories('public/images')); // List directories
-        $directory = 'public/images/'.$imageSubdir.'/';
-        Storage::deleteDirectory($directory);
-
-        // Symulate the upload
-        $local_test_file = __DIR__.'/test-files/large-avatar.png';
-        $requestFile = new \Illuminate\Http\UploadedFile(
-            $local_test_file,
-            'large-avatar.png',
-            'image/png',
-            null,
-            null,
-            true
-        );
-        $fileName ="test_file_name.jpg";
-        
-        $imageSubdir = 'test_subdir';
-        $imageWidth = '1067';
-        $thumbWidth = '690';
-        
-        $imageName = LaravelFormPartials::saveImageFile($requestFile, $fileName, $imageSubdir, $imageWidth, $thumbWidth);
-        
-        $this->assertEqual($imageName, 'test_file_name.jpg');
-    
-    }*/
-    
 }

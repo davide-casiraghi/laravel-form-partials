@@ -20,6 +20,7 @@ A collection of partials Blade views for Bootstrap 4 forms controls.
 - Textarea (with WYSWYG editor)
 - Textarea plain
 - Password
+- Upload image
 - Alert (to show an bootstrap alert)
 
 ## Installation
@@ -39,7 +40,7 @@ Then select the number that correspont to the package.
 
 The partials can be included in any blade view in this way:
 
-** for a create view **
+**for a create view**
 ``` php
 @include('laravel-form-partials::input', [
     'title' => __('views.title'),
@@ -50,7 +51,7 @@ The partials can be included in any blade view in this way:
 ])
 ```
 
-** for an edit view **
+**for an edit view**
 ``` php
 @include('laravel-form-partials::input', [
     'title' => __('views.title'),
@@ -60,6 +61,41 @@ The partials can be included in any blade view in this way:
     'required' => true,
 ])
 ```
+
+### Upload file
+
+**for a create view**
+``` php
+@include('laravel-form-partials::upload-image', [
+   'title' => 'Card image', 
+   'name' => 'image_file_name',
+   'folder' => 'cards',
+   'value' => '',
+   'required' => false,
+])
+```
+
+**for an edit view**
+``` php
+@include('laravel-form-partials::upload-image', [
+   'title' => 'Card image', 
+   'name' => 'image_file_name',
+   'folder' => 'cards',
+   'value' => $card->image_file_name,
+   'required' => false,
+])
+```
+
+**In the controller store method**
+``` php
+use DavideCasiraghi\LaravelFormPartials\Facades\LaravelFormPartials;
+...
+$imageSubdir = 'cards';
+$imageWidth = '1067';
+$thumbWidth = '690';
+$card->image_file_name = LaravelFormPartials::uploadImageOnServer($request->file('image_file_name'), $request->image_file_name, $imageSubdir, $imageWidth, $thumbWidth);
+```
+
 ### Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
