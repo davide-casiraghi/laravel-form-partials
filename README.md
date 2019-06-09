@@ -40,7 +40,7 @@ Then select the number that correspont to the package.
 
 The partials can be included in any blade view in this way:
 
-** for a create view **
+**for a create view**
 ``` php
 @include('laravel-form-partials::input', [
     'title' => __('views.title'),
@@ -51,7 +51,7 @@ The partials can be included in any blade view in this way:
 ])
 ```
 
-** for an edit view **
+**for an edit view**
 ``` php
 @include('laravel-form-partials::input', [
     'title' => __('views.title'),
@@ -73,7 +73,7 @@ The partials can be included in any blade view in this way:
 ])
 ```
 
-** for an edit view **
+**for an edit view**
 ``` php
 @include('laravel-form-partials::upload-image', [
    'title' => 'Card image', 
