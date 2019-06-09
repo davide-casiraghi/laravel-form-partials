@@ -90,6 +90,9 @@ The partials can be included in any blade view in this way:
 ``` php
 use DavideCasiraghi\LaravelFormPartials\Facades\LaravelFormPartials;
 ...
+$imageSubdir = 'cards';
+$imageWidth = '1067';
+$thumbWidth = '690';
 $card->image_file_name = LaravelFormPartials::uploadImageOnServer($request->file('image_file_name'), $request->image_file_name, $imageSubdir, $imageWidth, $thumbWidth);
 ```
 
