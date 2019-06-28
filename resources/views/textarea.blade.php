@@ -17,7 +17,7 @@
     <script>
 		// https://www.tiny.cloud/docs/get-started/basic-setup/
 			var editor_config = {
-				selector: 'textarea#bodyTextarea',
+				selector: '.textarea_tinymce',
                 
                 // Remove Html tags from paste text
                     paste_as_text: true, //!important
@@ -68,11 +68,11 @@
 
 <div class="form-group {{ $name }}">
     <label for="{{ $name }}">{{ $title }}@if($required) <span class="dark-gray" data-toggle="tooltip" data-placement="top" title="@lang('views.required')">*</span>@endif</label>
-    <textarea   class="form-control" 
+    <textarea   class="form-control textarea_tinymce" 
                 style="height:150px" 
                 name="{{ $name }}" 
                 @if(!empty($placeholder)) placeholder="{{ $placeholder }}" @endif 
-                id="bodyTextarea">
+                id="{{ $name }}">
                     @if(!empty($value)){!! $value !!} @endif
     </textarea>
 </div>
