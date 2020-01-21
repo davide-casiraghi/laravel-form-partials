@@ -2,8 +2,8 @@
 
 namespace DavideCasiraghi\LaravelFormPartials\Tests;
 
-use Illuminate\Support\Facades\Storage;
 use DavideCasiraghi\LaravelFormPartials\Facades\LaravelFormPartials;
+use Illuminate\Support\Facades\Storage;
 
 class LaravelFormPartialsTest extends TestCase
 {
