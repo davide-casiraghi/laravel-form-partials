@@ -10,7 +10,7 @@
 
 <div class="recaptcha-sum">
     
-    <p>Resolve the simple sum below: <br>
+    <p><b>@lang('laravel-form-partials::general.resolve_this_simple_sum'):</b> <br>
 	    {{ $randomNumber1 }} + {{$randomNumber2 }} = 
 		
 		<input name="captcha_result" type="text" size="2" />
