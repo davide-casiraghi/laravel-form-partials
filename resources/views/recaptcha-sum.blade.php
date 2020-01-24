@@ -4,20 +4,20 @@
     PARAMETERS:
         $random_number1
         $random_number2
-        $total_sum
-
+        
         http://html-tuts.com/simple-php-captcha/
 --}}
 
 <div class="recaptcha-sum">
     
-	<p>Resolve the simple php captcha below: </p>
-	<p>	{{ $random_number1 }} + {{$random_number2 }} </p>
+    <p>Resolve the simple sum below: <br>
+	    {{ $randomNumber1 }} + {{$randomNumber2 }} = 
 		
-		<input name="captchaResult" type="text" size="2" />
+		<input name="captcha_result" type="text" size="2" />
 
-		<input name="firstNumber" type="hidden" value="{{ $random_number1 }}" />
-		<input name="secondNumber" type="hidden" value="{{ $random_number2 }}" />
+		<input name="first_number" type="hidden" value="{{ $randomNumber1 }}" />
+		<input name="second_number" type="hidden" value="{{ $randomNumber2 }}" />
+        
 	</p>
 
 </div>
