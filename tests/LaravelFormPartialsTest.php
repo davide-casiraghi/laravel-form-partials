@@ -24,7 +24,7 @@ class LaravelFormPartialsTest extends TestCase
                 'large-avatar.png',
                 'image/png',
                 null,
-                null,
+                0,
                 true
             );
 
